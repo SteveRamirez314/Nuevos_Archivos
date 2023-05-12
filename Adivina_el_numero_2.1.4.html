@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Intenta suerte!</title>
+</head>
+<body>
+    <h1>Intenta suerte!</h1>
+    <script>
+        //*Funcion Salto de linea, usa bases de html br espacio hr linea
+        function saltoLinea() {
+            document.write("<br><br><br><hr><br><br>");
+        }
+        //*Funcion realizada para escribir una frase con tipo de letra dif por html 
+        function imprimir(palabra) {
+            document.write("<big>" + (palabra) + "</big>");
+            saltoLinea();
+        }
+        //*Variables utilizadas para dar uso en while 
+        //*Estando afuera pueden usarse en donde sea necesario de manera publica
+        var numerointentos = 3;
+        var contador = 1;
+        var inicioDeSesionIngresado = '';
+        var acceso = false;
+        //*Iniciador para ejecutar el siguiente codigo varias veces cumpliendo con el parametro contador <= numerointentos
+        while (contador <= numerointentos) {             
+            var inicioDeSesionRegistrado = "20011205";
+            var contrasenhaRegistrada = "1234";
+
+            inicioDeSesionIngresado = prompt("Ingrese su usuario");
+            var contrasenhaIngresada = prompt("Ingrese su contraseña");
+            
+            if (inicioDeSesionRegistrado === inicioDeSesionIngresado && contrasenhaRegistrada === contrasenhaIngresada) {
+                alert("Bienvenido al sistema " + inicioDeSesionIngresado);
+                acceso = true;
+                break;
+            } else {
+                alert("Inicio de sesión inválido. Favor intente de nuevo");
+            }
+            contador++;
+        }
+        //*Su numero pensado X, entonces tiene 3 intentos.
+        if (acceso) {
+            var numeroPensado = Math.round(Math.random() * 10);
+            var intentos = 3;
+            var contador = 1;
+            var numeroLanzado;
+            //*Repetir hasta que  el contador sea igual o menor al numero de intentos 
+            while (contador <= intentos) {
+                numeroLanzado = parseInt(prompt("Ingrese un numero entre 0-10"));
+                if (numeroPensado === numeroLanzado) {
+                    alert("Usted acerto en el intento " + contador + ". El numero pensado era " + numeroPensado);
+                    break;
+                } else {
+                    alert("Usted falló");
+                }
+                contador++;
+            }
+
+            if (numeroPensado === numeroLanzado) {
+                imprimir("Usted acertó, en el intento: " + (contador - 1) + " .El número pensado era: " + numeroPensado);
+                //* -1???
+            } else {
+                imprimir("Usted falló el numero pensado era: " + numeroPensado);
+            }
+            imprimir("fin");
+        }
+    </script>
+</body>
+</html>
